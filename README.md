@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -46,11 +45,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-=======
+
+
 # React-snippets
 Respository meant to save retulizable code made using Reactjs with Typescript
->>>>>>> 521bd13568661a1c04d21b6a64395cf5c448d11b
-=======
-# React-snippets
-Respository meant to save retulizable code made using Reactjs with Typescript
->>>>>>> 4402e38554c3a62c5f3a2fe035683130d09e1ab8
