@@ -1,17 +1,7 @@
 import { LogInValidation } from "../types/global_types";
 
-export interface Frameworks{
-    id: number;
-    name: string;
-    version: string;
-    url: string;
-}
-
-export interface SoccerPlayers{
-    id: number;
-    name: string;
-    position: string;
-    team: string;
+export interface DbContent{
+    [key: string]: string | number;
 }
 
 export interface Track {

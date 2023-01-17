@@ -1,15 +1,15 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { helpHttp } from '../helpers/helpHttp';
-import {SoccerPlayers} from '../ts/interfaces/global_interfaces';
+import {DbContent} from '../ts/interfaces/global_interfaces';
 import CrudForm from './CrudForm';
 import CrudTable from './CrudTable';
 import Loader from './Loader';
 import Message from './Message';
 
 const CrudApi = (): JSX.Element => {
-  const [db, setDb] = useState<SoccerPlayers[] | null>(null);
-  const [dataToEdit, setDataToEdit] = useState<SoccerPlayers | null>(null);
+  const [db, setDb] = useState<DbContent[] | null>(null);
+  const [dataToEdit, setDataToEdit] = useState<DbContent | null>(null);
   const [error, setError] = useState<any | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   
@@ -38,7 +38,7 @@ const CrudApi = (): JSX.Element => {
     });  
   }, [url])
 
-  const createData = (data: SoccerPlayers): void => {
+  const createData = (data: DbContent): void => {
     
     api.post(url, {body:JSON.stringify(data), headers: {"content-type": "application/json"}})
     .then(res => {
@@ -49,12 +49,12 @@ const CrudApi = (): JSX.Element => {
     setDb([...db!, data]);
   }
 
-  const updateData = (data: SoccerPlayers): void => {
+  const updateData = (data: DbContent): void => {
     const endpoint: string = `${url}/${data.id}`;
         api.put(endpoint, {body:JSON.stringify(data), headers: {"content-type": "application/json"}})
     .then(res => {
         if(!res.err){
-            let newData: SoccerPlayers[] = db!.map((el: SoccerPlayers) => el.id === data.id ? data : el);
+            let newData: DbContent[] = db!.map((el: DbContent) => el.id === data.id ? data : el);
             setDb(newData);
         }else setError(res);
     });
@@ -68,7 +68,7 @@ const CrudApi = (): JSX.Element => {
 
       api.del(endpoint).then(res => {
         if(!res.err){
-            let newData: SoccerPlayers[] = db!.filter((el: SoccerPlayers) => el.id !== id);
+            let newData: DbContent[] = db!.filter((el: DbContent) => el.id !== id);
             setDb(newData);
         }else setError(res);
 

@@ -1,7 +1,8 @@
-import {Frameworks} from '../ts/interfaces/global_interfaces'
+import {DbContent} from '../ts/interfaces/global_interfaces'
+import { IText } from '../ts/types/global_types';
 import CrudTableRow from "./CrudTableRow"
 
-const CrudTable = ({data, setDataToEdit, deleteData, text}: any) => {
+const CrudTable = ({data, setDataToEdit, deleteData, text}: {data: DbContent[], setDataToEdit: (dataToEdit: DbContent)=>void, deleteData: (id: number)=>unknown, text: IText}) => {
     const {name, feature1, feature2} = text;
   return (
     <div>
@@ -16,7 +17,7 @@ const CrudTable = ({data, setDataToEdit, deleteData, text}: any) => {
                 </tr>
             </thead>
             <tbody>
-                {data.length > 0 ? data.map((el: Frameworks) => <CrudTableRow key={el.id} el={el} setDataToEdit={setDataToEdit} deleteData={deleteData}/>) : <tr><td colSpan={4}>Sin datos</td></tr>}
+                {data.length > 0 ? data.map((el: DbContent) => <CrudTableRow key={el.id} el={el} setDataToEdit={setDataToEdit} deleteData={deleteData}/>) : <tr><td colSpan={4}>Sin datos</td></tr>}
             </tbody>
         </table>
     </div>

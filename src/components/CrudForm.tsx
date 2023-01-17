@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import {Frameworks} from '../ts/interfaces/global_interfaces';
+import {DbContent} from '../ts/interfaces/global_interfaces';
+import { IText } from '../ts/types/global_types';
 
 
-const initialForm: Frameworks = {
+const initialForm: DbContent= {
     id: 0,
     name: '',
     version: '',
     url: ''
 }
 
-const CrudForm = ({createData, updateData, dataToEdit, setDataToEdit, text}: any) => {
-  const [form, setForm] = useState<Frameworks>(initialForm)
+const CrudForm = ({createData, updateData, dataToEdit, setDataToEdit, text}: {createData:(data: DbContent)=>void,updateData:(data: DbContent)=>void, dataToEdit: any, setDataToEdit: (dataToEdit: DbContent | null)=>void, text: IText  }): JSX.Element => {
+  const [form, setForm] = useState<DbContent>(initialForm)
   
   useEffect(() => {
     if(dataToEdit){
